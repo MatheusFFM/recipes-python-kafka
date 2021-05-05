@@ -6,8 +6,16 @@ from kafka import KafkaProducer
 
 # bin/windows/zookeeper-server-start.bat config/zookeeper.properties
 # bin/windows/kafka-server-start.bat config/server.properties
-#kafka-consumer-groups.bat --bootstrap-server kafka-host:9092 --group
-#my-group --reset-offsets --to-earliest --all-topics --execute
+
+# kafka-consumer-groups.bat --bootstrap-server kafka-host:9092 --group
+# my-group --reset-offsets --to-earliest --all-topics --execute
+# bin/windows/kafka-topics.bat --list --zookeeper localhost:2181
+
+# bin/windows/kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+# Created topic "test"
+
+# bin/windows/kafka-console-producer.bat --broker-list localhost:9092 --topic test
+# bin/windows/kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test --from-beginning
 
 # pip install kafka-python
 # pip install beautifulsoup4
@@ -52,7 +60,7 @@ def fetch_raw(recipe_url):
 
 def get_recipes():
     recipes = []
-    url = 'https://www.allrecipes.com/recipes/96/salad/'
+    url = 'https://www.allrecipes.com/recipes/95/salad/'
     print('PRODUCER: Acessando lista')
 
     try:
